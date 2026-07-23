@@ -1,0 +1,85 @@
+/* ==========================================================================
+   1. GLOBAL & LAYOUT STYLES
+   ========================================================================== */
+/* Styles targeting global typography and default element colors */
+h2, h3 {
+    color: #1F3A52 !important; /* Deep Ocean Blue for section headers */
+}
+
+/* ==========================================================================
+   2. BRANDING & HEADER (Logo & Titles)
+   ========================================================================== */
+/* Main application title styling */
+.main-title {
+    color: #C8102E; /* Scandinavian Red */
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+/* Subtitle with Danish Hygge branding */
+.hygge-subtitle {
+    color: #1F3A52; /* Deep Ocean Blue */
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Container styling for the application logo image */
+.app-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   3. SIDEBAR NAVIGATION
+   ========================================================================== */
+/* Styling specific to the sidebar navigation area */
+.sidebar-branding {
+    text-align: center;
+    font-weight: bold;
+    color: #1F3A52;
+}
+
+/* ==========================================================================
+   4. RECIPE FORM (Gem Opskrift Components)
+   ========================================================================== */
+/* Target input fields inside the expander form if needed */
+.form-section-title {
+    color: #1F3A52;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Global Button behavior (primarily targets the submission buttons) */
+.stButton>button {
+    background-color: #1F3A52; /* Deep Ocean Blue default */
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Interactivity state for buttons */
+.stButton>button:hover {
+    background-color: #C8102E; /* Turns Scandinavian Red on hover */
+    color: white;
+}
+
+/* ==========================================================================
+   5. RECIPE DISPLAY (Cards & Image Previews)
+   ========================================================================== */
+/* Container for recipe cards inside the gallery viewer */
+.recipe-card {
+    border-left: 5px solid #C8102E;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+/* Responsive styling for recipe image display previews */
+.recipe-image-preview {
+    border-radius: 8px;
+    max-height: 250px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
