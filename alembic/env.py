@@ -7,16 +7,33 @@ from alembic import context
 
 import os
 import sys
+from dotenv import load_dotenv
 
-# Adiciona a raiz do projeto e a pasta backend ao caminho de busca do Python
+# Add the project root and the backend folder to the Python search path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../backend')))
 
 from backend.models import Base
 
+# Load environment variables from the .env file
+load_dotenv()
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+# Dynamically override the SQLAlchemy URL and handle PyMySQL SSL requirements
+database_url = os.getenv("DATABASE_URL")
+connect_args = {}
+
+if database_url:
+    if "ssl_mode=" in database_url:
+        database_url = database_url.replace("ssl_mode=REQUIRED", "").replace("?&", "?").rstrip("?")
+    config.set_main_option("sqlalchemy.url", database_url)
+    
+    if "localhost" not in database_url and "127.0.0.1" not in database_url:
+        # Enable SSL connection for cloud databases using PyMySQL
+        connect_args["ssl"] = {}
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -24,15 +41,7 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 # for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-
 target_metadata = Base.metadata
-
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
 
 
 def run_migrations_offline() -> None:
@@ -70,6 +79,7 @@ def run_migrations_online() -> None:
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
+        connect_args=connect_args,
     )
 
     with connectable.connect() as connection:
