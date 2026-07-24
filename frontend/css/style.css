@@ -3,7 +3,7 @@
    ========================================================================== */
 /* Styles targeting global typography and default element colors */
 h2, h3 {
-    color: #1F3A52 !important; /* Deep Ocean Blue for section headers */
+    color: #9BB7C6 !important; /* Nordic Ice Blue - High contrast for Dark Mode */
 }
 
 /* ==========================================================================
@@ -18,7 +18,7 @@ h2, h3 {
 
 /* Subtitle with Danish Hygge branding */
 .hygge-subtitle {
-    color: #1F3A52; /* Deep Ocean Blue */
+    color: #9BB7C6; /* Nordic Ice Blue */
     font-style: italic;
     font-size: 1.1rem;
     margin-bottom: 20px;

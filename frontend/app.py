@@ -548,7 +548,7 @@ elif page == "🛒 Mad & Market (Smart Shopping List)":
                     options=list(recipe_options.keys())
                 )
                 
-                if st.button("🛍️ Generer Indkøbsliste (Generate Shopping List)", type="primary"):
+                if st.button("🛍️ Generate Shopping List (Generer Indkøbsliste)", type="primary"):
                     if not selected_titles:
                         st.warning("Please select at least one recipe to aggregate.")
                     else:
