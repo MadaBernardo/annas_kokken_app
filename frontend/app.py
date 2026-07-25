@@ -268,6 +268,7 @@ if page == "📖 Anna's Køkken (Digital Recipe Book)":
                     st.warning("No recipes match your search criteria.")
                 else:
                     for recipe in filtered_recipes:
+                     st.write("DEBUG API:", recipe)
                      with st.expander(f"🍰 {recipe['title']}"):
                         
                         # --- Smart Image Preview Pipeline ---
