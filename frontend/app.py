@@ -3,7 +3,7 @@ import requests
 import urllib.parse
 
 # Define your API base URL here (adjust to your actual variable name)
-API_BASE_URL = "http://127.0.0.1:8000" 
+API_BASE_URL = "https://annas-kokken-app-backend.onrender.com" 
 
 # --- BACKEND HEALTH CHECK ---
 # Verify API availability before rendering the application state
