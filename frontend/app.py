@@ -271,11 +271,14 @@ if page == "📖 Anna's Køkken (Digital Recipe Book)":
                      with st.expander(f"🍰 {recipe['title']}"):
                         
                         # --- Smart Image Preview Pipeline ---
-                        if recipe.get("image_url"):
+                        img_url = recipe.get("image_url")
+                        
+                        # VALIDACÃO: Garante que o link existe e não é "0", 0, vazio ou nulo
+                        if img_url and str(img_url).strip() not in ["0", "", "None", "null"]:
                             if st.toggle("🔍 View Full Size Photo", key=f"zoom_img_{recipe['id']}"):
-                                st.image(recipe["image_url"], use_column_width=True)
+                                st.image(img_url, use_container_width=True)
                             else:
-                                st.image(recipe["image_url"], width=180)
+                                st.image(img_url, width=180)
                         else:
                             st.caption("📸 No photo attached to this recipe.")
                             
