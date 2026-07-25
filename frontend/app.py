@@ -268,14 +268,20 @@ if page == "📖 Anna's Køkken (Digital Recipe Book)":
                     st.warning("No recipes match your search criteria.")
                 else:
                     for recipe in filtered_recipes:
-                     st.write("DEBUG API:", recipe)
                      with st.expander(f"🍰 {recipe['title']}"):
                         
                         # --- Smart Image Preview Pipeline ---
                         img_url = recipe.get("image_url")
                         
-                        # VALIDACÃO: Garante que o link existe e não é "0", 0, vazio ou nulo
                         if img_url and str(img_url).strip() not in ["0", "", "None", "null"]:
+                            
+                            # CORREÇÃO MÁGICA: Se o link guardado for do localhost antigo,
+                            # trocamos dinamicamente pelo teu link real do Render!
+                            if "localhost:8000" in img_url:
+                                # Extrai a base do teu URL do Render (ex: https://teu-backend.onrender.com)
+                                render_base = API_URL.replace("/recipes", "").replace("/api", "") # Ajusta conforme a tua rota
+                                img_url = img_url.replace("http://localhost:8000", render_base)
+                            
                             if st.toggle("🔍 View Full Size Photo", key=f"zoom_img_{recipe['id']}"):
                                 st.image(img_url, use_container_width=True)
                             else:
