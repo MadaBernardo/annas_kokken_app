@@ -2,6 +2,14 @@ import streamlit as st
 import requests
 import urllib.parse
 
+# --- 1. PAGE SETUP ---
+st.set_page_config(
+    page_title="Anna's Køkken", 
+    page_icon="🍳", 
+    layout="centered"
+)
+
+
 # Define your API base URL here (adjust to your actual variable name)
 API_BASE_URL = "https://annas-kokken-app-backend.onrender.com" 
 
@@ -18,12 +26,6 @@ if not backend_online:
     st.error("⚠️ **Backend Server Offline:** The FastAPI server is currently unreachable. Please ensure the backend is running and try again.")
     st.stop() # Gracefully halts Streamlit execution to prevent downstream UI crashes
 
-# --- 1. PAGE SETUP ---
-st.set_page_config(
-    page_title="Anna's Køkken", 
-    page_icon="🍳", 
-    layout="centered"
-)
 
 # Helper function to inject clean, separate CSS from the new path
 def local_css(file_name):
