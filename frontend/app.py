@@ -73,7 +73,7 @@ st.markdown("<p class='hygge-subtitle'>Få det hyggeligt i køkkenet</p>", unsaf
 
 st.markdown("---")
 
-API_URL = "http://127.0.0.1:8000/recipes"
+API_URL = f"{API_BASE_URL}/recipes"
 
 # --- 3. SIDEBAR NAVIGATION ---
 st.sidebar.title("Menu")
@@ -313,7 +313,7 @@ if page == "📖 Anna's Køkken (Digital Recipe Book)":
                         whatsapp_url = f"https://api.whatsapp.com/send?text={encoded_text}"
                         
                         # Dynamic link constructor (update 'localhost' to your production domain later)
-                        APP_BASE_URL = "http://localhost:8501"
+                        APP_BASE_URL = "https://annas-kokken.streamlit.app"
                         recipe_link = f"{APP_BASE_URL}/?recipe_id={recipe['id']}"
                         
                         # Render full-width button for active WhatsApp redirection
