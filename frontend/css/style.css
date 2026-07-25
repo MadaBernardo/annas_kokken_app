@@ -10,15 +10,15 @@ h2, h3 {
    2. BRANDING & HEADER (Logo & Titles)
    ========================================================================== */
 /* Main application title styling */
-.main-title {
-    color: #C8102E; /* Scandinavian Red */
+.main-title, h1 {
+    color: #C8102E !important; /* Scandinavian Red - Forçado para bater o tema do Streamlit */
     font-weight: bold;
     margin-bottom: 0px;
 }
 
 /* Subtitle with Danish Hygge branding */
 .hygge-subtitle {
-    color: #9BB7C6; /* Nordic Ice Blue */
+    color: #9BB7C6 !important; /* Nordic Ice Blue */
     font-style: italic;
     font-size: 1.1rem;
     margin-bottom: 20px;
