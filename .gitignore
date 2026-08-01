@@ -1,5 +1,26 @@
+# Ambientes Virtuais e Dependências
+.venv/
+venv/
+ENV/
+
+# Configurações de Ambiente e Segredos
 .env
+.streamlit/secrets.toml
+
+# Python (Bytecodes e Cache)
 __pycache__/
 *.pyc
-.venv/
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Logs (essencial para quando implementares o sistema de logging)
+*.log
+
+# IDEs e Editores
 .vscode/
+.idea/
+
+# Ficheiros do Sistema Operativo
+.DS_Store
+Thumbs.db
